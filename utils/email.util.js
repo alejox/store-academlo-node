@@ -14,25 +14,22 @@ class Email {
 
   newTransport() {
 
-    return nodemailer.createTransport({
+   /*  return nodemailer.createTransport({
       service: 'SendGrid',
       auth: {
         user: 'apikey',
         pass: process.env.SENDGRID_API_KEY,
       },
-    });
-
-
+    }); */
     
-
-    // return nodemailer.createTransport({
-    //   host: 'smtp.mailtrap.io',
-    //   port: 2525,
-    //   auth: {
-    //     user: process.env.MAILTRAP_USER,
-    //     pass: process.env.MAILTRAP_PASSWORD,
-    //   },
-    // });
+    return nodemailer.createTransport({
+      host: 'smtp.mailtrap.io',
+      port: 2525,
+      auth: {
+        user: process.env.MAILTRAP_USER,
+        pass: process.env.MAILTRAP_PASSWORD,
+      },
+    });
   }
 
   // Send the actual mail
